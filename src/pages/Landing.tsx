@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Navbar } from '@/components/layout/Navbar';
+ import { Navbar } from '@/components/layout/Navbar';
+// import  Navbar  from '../components/sections/navbar';
 import { Footer } from '@/components/layout/Footer';
 import { 
   Shield, 
@@ -18,11 +19,11 @@ import {
 import { useState } from 'react';
 
 const features = [
-  {
-    icon: Shield,
-    title: 'Bank-Level Security',
-    description: 'Your transactions are protected with industry-standard encryption and secure authentication.',
-  },
+  // {
+  //   icon: Shield,
+  //   title: 'Bank-Level Security',
+  //   description: 'Your transactions are protected with industry-standard encryption and secure authentication.',
+  // },
   {
     icon: Zap,
     title: 'Instant Payments',
@@ -33,21 +34,23 @@ const features = [
     title: 'Multiple Payment Options',
     description: 'Pay via bank transfer, debit card, or USSD - whatever works best for you.',
   },
-  {
-    icon: Clock,
-    title: 'Real-Time Tracking',
-    description: 'Track your payment status in real-time and get instant confirmation.',
-  },
-  {
+
+   {
     icon: Smartphone,
     title: 'Mobile Optimized',
     description: 'Access and pay your fees from any device, anywhere, anytime.',
   },
   {
-    icon: FileText,
-    title: 'Digital Receipts',
-    description: 'Download and share payment receipts instantly for your records.',
+    icon: Clock,
+    title: 'Real-Time Tracking',
+    description: 'Track your payment status in real-time and get instant confirmation.',
   },
+ 
+  // {
+  //   icon: FileText,
+  //   title: 'Digital Receipts',
+  //   description: 'Download and share payment receipts instantly for your records.',
+  // },
 ];
 
 const problems = [
@@ -115,22 +118,23 @@ export default function Landing() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <div className="min-h-screen bg-[#F8F8F8]">
+       <Navbar /> 
+      {/* <Navbar /> */}
       
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-hero opacity-[0.03]" />
+        {/* <div className="absolute inset-0 bg-gradient-hero opacity-[0.03]" />
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" /> */}
         
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
+            {/* <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
               Now available for all Bells University students
-            </div>
+            </div> */}
             
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6 animate-slide-up">
               Pay Your School Fees
@@ -142,13 +146,13 @@ export default function Landing() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <Button size="xl" variant="hero" onClick={() => navigate('/register')}>
+              <Button size="xl" className='bg-[#0010B4]' onClick={() => navigate('/register')}>
                 Create Free Account
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button size="xl" variant="outline" onClick={() => navigate('/login')}>
+              {/* <Button size="xl" variant="outline" onClick={() => navigate('/login')}>
                 Sign In
-              </Button>
+              </Button> */}
             </div>
 
             {/* Trust Indicators */}
@@ -189,8 +193,8 @@ export default function Landing() {
             {/* Problems */}
             <div className="bg-card p-8 rounded-2xl border border-destructive/20 shadow-card">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-destructive/10 rounded-xl flex items-center justify-center">
-                  <XCircle className="w-5 h-5 text-destructive" />
+                <div className="w-12 h-10 bg-[#FFB7B7] rounded-xl flex items-center justify-center">
+                  <XCircle className="w-5 h-5 text-[#FF0000]" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground">Old Payment Portal</h3>
               </div>
@@ -207,8 +211,8 @@ export default function Landing() {
             {/* Solutions */}
             <div className="bg-card p-8 rounded-2xl border border-accent/20 shadow-card">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center">
-                  <CheckCircle2 className="w-5 h-5 text-accent" />
+                <div className="w-10 h-10 bg-[#3AFFC7] rounded-xl flex items-center justify-center">
+                  <CheckCircle2 className="w-5 h-5 text-[#097254]" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground">Bells Pay</h3>
               </div>
@@ -230,21 +234,21 @@ export default function Landing() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Everything You Need
+              Everything You Need To Know
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Powerful features designed to make your payment experience seamless.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className="group bg-card p-6 rounded-2xl border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-card-hover"
+                className="group  p-6  border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-card-hover"
               >
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                  <feature.icon className="w-6 h-6 text-accent" />
+                <div className="w-12 h-12 bg-[#3AFFC7] rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <feature.icon className="w-6 h-6 text-[#00815C]" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
@@ -270,21 +274,21 @@ export default function Landing() {
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-primary-foreground rounded-2xl font-display font-bold text-xl mb-4 shadow-elegant">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-[#0010B4] text-primary-foreground rounded-2xl font-display font-bold text-xl mb-4 shadow-elegant">
                     {step.number}
                   </div>
                   <h3 className="font-display font-semibold text-lg text-foreground mb-2">{step.title}</h3>
                   <p className="text-muted-foreground text-sm">{step.description}</p>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-[2px] bg-border" />
+                  <div className="hidden lg:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-[2px] bg-[#ADADAD]" />
                 )}
               </div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" onClick={() => navigate('/register')}>
+            <Button size="lg" className='bg-[#0010B4]'  onClick={() => navigate('/register')}>
               Get Started Now
               <ArrowRight className="w-5 h-5" />
             </Button>
@@ -332,7 +336,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
@@ -360,7 +364,7 @@ export default function Landing() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

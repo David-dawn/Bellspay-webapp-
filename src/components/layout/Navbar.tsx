@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import logo from "/images/logo.png";
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
 import { 
@@ -131,99 +132,51 @@ export function Navbar({ variant = 'landing' }: NavbarProps) {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg font-display">B</span>
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">Bells Pay</span>
-          </Link>
+   <header className="w-full flex justify-center pt-6 z-50">
+  <nav className="flex items-center justify-between w-[55%] max-w-4xl h-[58px] bg-white px-6 py-3 rounded-[9px] shadow-sm">
+    
+    {/* Logo */}
+    <div className="flex items-center gap-2">
+      <img src={logo} alt="Bells Pay Logo" width={52} height={52} />
+      <span className="font-semibold text-[#0010B4]">Bells Pay</span>
+    </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Features
-            </a>
-            <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              How It Works
-            </a>
-            <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              FAQ
-            </a>
-          </nav>
+    {/* Desktop Navigation */}
+    <ul className="hidden md:flex items-center gap-16 text-sm text-[#7A7A7A]">
+      <li className="cursor-pointer hover:text-gray-900">Features</li>
+      <li className="cursor-pointer hover:text-gray-900">
+        How <span className="uppercase">IT</span> Works
+      </li>
+      <li className="cursor-pointer hover:text-gray-900">FAQ</li>
+    </ul>
 
-          <div className="hidden md:flex items-center gap-3">
-            {isAuthenticated ? (
-              <Button onClick={() => navigate('/dashboard')}>
-                Go to Dashboard
-              </Button>
-            ) : (
-              <>
-                <Button variant="ghost" onClick={() => navigate('/login')}>
-                  Sign In
-                </Button>
-                <Button onClick={() => navigate('/register')}>
-                  Create Account
-                </Button>
-              </>
-            )}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border animate-slide-up">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
-            <a 
-              href="#features" 
-              className="px-4 py-3 rounded-lg hover:bg-muted transition-colors font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Features
-            </a>
-            <a 
-              href="#how-it-works" 
-              className="px-4 py-3 rounded-lg hover:bg-muted transition-colors font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              How It Works
-            </a>
-            <a 
-              href="#faq" 
-              className="px-4 py-3 rounded-lg hover:bg-muted transition-colors font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              FAQ
-            </a>
-            <hr className="my-2 border-border" />
-            {isAuthenticated ? (
-              <Button className="w-full" onClick={() => { navigate('/dashboard'); setIsMobileMenuOpen(false); }}>
-                Go to Dashboard
-              </Button>
-            ) : (
-              <>
-                <Button variant="outline" className="w-full" onClick={() => { navigate('/login'); setIsMobileMenuOpen(false); }}>
-                  Sign In
-                </Button>
-                <Button className="w-full" onClick={() => { navigate('/register'); setIsMobileMenuOpen(false); }}>
-                  Create Account
-                </Button>
-              </>
-            )}
-          </nav>
-        </div>
+    {/* Right Side (UNCHANGED LOGIC) */}
+    <div className="hidden md:flex items-center gap-3">
+      {isAuthenticated ? (
+        <Button onClick={() => navigate('/dashboard')}>
+          Go to Dashboard
+        </Button>
+      ) : (
+        <>
+          <Button className='bg-[#0010B4]' onClick={() => navigate('/login')}>
+            Sign In
+          </Button>
+          {/* <Button onClick={() => navigate('/register')}>
+            Create Account
+          </Button> */}
+        </>
       )}
-    </header>
+    </div>
+
+    {/* Mobile Menu Button */}
+    <button
+      className="md:hidden p-2 text-[#0010B4]"
+      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+    >
+      {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+    </button>
+  </nav>
+</header>
+
   );
 }
