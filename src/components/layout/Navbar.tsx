@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import logo from "/images/logo.png";
+import logo from "/images/logos.png";
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
 import { 
