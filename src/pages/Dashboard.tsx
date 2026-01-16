@@ -129,7 +129,7 @@ export default function Dashboard() {
             <h2 className="font-display text-lg font-semibold text-foreground">Quick Actions</h2>
             
             <Link to="/payment" className="block">
-              <div className="bg-gradient-primary p-6 rounded-2xl text-primary-foreground group hover:shadow-elegant transition-shadow">
+              <div className="bg-[#0010B4] p-6 rounded-2xl text-primary-foreground group hover:shadow-elegant transition-shadow">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary-foreground/10 rounded-xl flex items-center justify-center">
                     <CreditCard className="w-6 h-6" />
@@ -214,7 +214,7 @@ export default function Dashboard() {
                     Start by making your first payment.
                   </p>
                   <Link to="/payment">
-                    <Button>Make a Payment</Button>
+                    <Button className='bg-[#0010B4]'>Make a Payment</Button>
                   </Link>
                 </div>
               ) : (

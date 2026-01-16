@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, Mail, Lock, User, Hash, GraduationCap, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import logo from '/images/logo.png';
 
 const departments = [
   'Computer Science',
@@ -147,18 +148,18 @@ export default function Register() {
         <div className="mx-auto w-full max-w-md">
           <Link 
             to="/" 
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+            className="inline-flex ml-[-25rem] items-center gap-2 text-[#000000] hover:text-foreground mb-8 transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-6 h-6 " />
             Back to home
           </Link>
 
           <div className="mb-8">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg font-display">B</span>
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">Bells Pay</span>
+             
+                <img src={logo} alt="Bells Pay Logo" width={52} height={52} />
+             
+              <span className="font-display font-bold text-[25px] text-[#2A38CC]">Bells Pay</span>
             </Link>
             <h1 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
               Create your account
@@ -315,14 +316,14 @@ export default function Register() {
               )}
             </div>
 
-            <Button type="submit" className="w-full h-12" isLoading={isLoading}>
+            <Button type="submit" className="w-full h-12 bg-[#2A38CC]" isLoading={isLoading}>
               Create Account
             </Button>
           </form>
 
-          <p className="mt-6 text-center text-sm text-muted-foreground">
+          <p className="mt-6 text-center text-sm text-[#000000]">
             Already have an account?{' '}
-            <Link to="/login" className="font-medium text-accent hover:underline">
+            <Link to="/login" className="font-medium text-[#1EB32A] hover:underline">
               Sign in
             </Link>
           </p>
@@ -330,7 +331,7 @@ export default function Register() {
       </div>
 
       {/* Right Panel - Requirements */}
-      <div className="hidden lg:flex flex-1 bg-gradient-hero items-center justify-center p-12">
+      {/* <div className="hidden lg:flex flex-1 bg-gradient-hero items-center justify-center p-12">
         <div className="max-w-md text-primary-foreground">
           <div className="flex items-center gap-3 mb-8">
             <GraduationCap className="w-12 h-12" />
@@ -362,7 +363,7 @@ export default function Register() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

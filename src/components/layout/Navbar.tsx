@@ -34,10 +34,8 @@ export function Navbar({ variant = 'landing' }: NavbarProps) {
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <Link to="/dashboard" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg font-display">B</span>
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">Bells Pay</span>
+               <img src={logo} alt="Bells Pay Logo" width={52} height={52} />
+              <span className="font-display font-bold text-xl text-[#0010B4]">Bells Pay</span>
             </Link>
 
             {/* Desktop Navigation */}
